@@ -1,16 +1,11 @@
-# skeleton-ansible-role #
+# ansible-role-orchestrator #
 
-[![Build Status](https://travis-ci.com/cisagov/skeleton-ansible-role.svg?branch=develop)](https://travis-ci.com/cisagov/skeleton-ansible-role)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/skeleton-ansible-role.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/skeleton-ansible-role/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/skeleton-ansible-role.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/skeleton-ansible-role/context:python)
+[![Build Status](https://travis-ci.com/cisagov/ansible-role-orchestrator.svg?branch=develop)](https://travis-ci.com/cisagov/ansible-role-orchestrator)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-orchestrator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-orchestrator/alerts/)
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-orchestrator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-orchestrator/context:python)
 
-This is a skeleton project that can be used to quickly get a new
-[cisagov](https://github.com/cisagov) Ansible role GitHub project
-started.  This skeleton project contains [licensing
-information](LICENSE.md), as well as [pre-commit
-hooks](https://pre-commit.com) and a [Travis
-CI](https://travis-ci.com) configuration appropriate for an Ansible
-role.
+An Ansible role for installing
+[cisagov/orchestrator](https://github.com/cisagov/orchestrator).
 
 ## Requirements ##
 
@@ -29,11 +24,11 @@ None.
 Here's how to use it in a playbook:
 
 ```yaml
-- hosts: all
+- hosts: docker
   become: yes
   become_method: sudo
   roles:
-    - skeleton
+    - orchestrator
 ```
 
 ## Contributing ##
