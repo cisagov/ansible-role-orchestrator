@@ -11,4 +11,6 @@ galaxy_info:
         - stretch
   galaxy_tags: []
 
-dependencies: []
+dependencies:
+  - src: https://github.com/cisagov/ansible-role-docker
+    name: docker
