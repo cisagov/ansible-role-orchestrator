@@ -1,13 +1,13 @@
 ---
 # tasks file for orchestrator
 - name: Create the /var/cyhy/orchestrator directory
-  file:
+  ansible.builtin.file:
     path: /var/cyhy/orchestrator
     state: directory
     mode: 0755
 
 - name: Download and untar the orchestrator tarball
-  unarchive:
+  ansible.builtin.unarchive:
     src: https://api.github.com/repos/cisagov/orchestrator/tarball/develop
     dest: /var/cyhy/orchestrator
     remote_src: yes
@@ -15,6 +15,7 @@
       - "--strip-components=1"
 
 - name: Create the mount point for the reports volume
-  file:
+  ansible.builtin.file:
     path: /var/cyhy/orchestrator/output
     state: directory
+    mode: 0755
