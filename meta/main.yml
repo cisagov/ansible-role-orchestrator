@@ -3,13 +3,32 @@ galaxy_info:
   author: Shane Frasier
   description: Ansible role for installing cisagov/orchestrator
   company: CISA Cyber Assessments
+  galaxy_tags: []
   license: CC0
-  min_ansible_version: 2.0
+  # With the release of version 2.10, Ansible finally correctly
+  # identifies Kali Linux as being the Kali distribution of the Debian
+  # OS family.  This simplifies a lot of things for roles that support
+  # Kali Linux, so it makes sense to force the installation of Ansible
+  # 2.10 or newer.
+  min_ansible_version: 2.10
   platforms:
     - name: Debian
       versions:
         - stretch
-  galaxy_tags: []
+        - buster
+        # Kali linux isn't an option here, but it is based on
+        # Debian Testing:
+        # https://www.kali.org/docs/policy/kali-linux-relationship-with-debian
+        - bullseye
+    - name: Fedora
+      versions:
+        - 32
+        - 33
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+  role_name: orchestrator
 
 dependencies:
   - src: https://github.com/cisagov/ansible-role-docker
