@@ -1,8 +1,10 @@
 """Module containing the tests for the default scenario."""
 
+# Standard Python Libraries
 import os
-import pytest
 
+# Third-Party Libraries
+import pytest
 import testinfra.utils.ansible_runner
 
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
@@ -14,7 +16,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     "directory",
     [
         {"path": "/var/cyhy/orchestrator", "mode": "0o755"},
-        {"path": "/var/cyhy/orchestrator/output"},
+        {"path": "/var/cyhy/orchestrator/output", "mode": "0o755"},
     ],
 )
 def test_directories(host, directory):

@@ -1,26 +1,33 @@
 ---
-# If a systemd host lacks the file /sbin/init, then testinfra
-# currently misidentifies it as using SysV.  The relevant code can be
-# viewed here:
-# https://github.com/philpep/testinfra/blob/master/testinfra/modules/service.py#L51-L63.
+# When installing packages during later steps, the Fedora Docker
+# images we are using (geerlingguy/docker-fedora32-ansible:latest and
+# cisagov/docker-fedora33-ansible:latest) can throw sporadic errors
+# like:
 #
-# The Debian 9 and Debian 10 Docker images that we are using suffer
-# from this issue; therefore, we need to install the init package as a
-# workaround.  Any real (non-Docker) host will have this package
-# installed anyway.
+# No such file or directory: '/var/cache/dnf/metadata_lock.pid'
 #
-# This is a known testinfra issue.  See
-# https://github.com/philpep/testinfra/issues/416 for more details.
+# Our fix is to ensure that systemd finishes initializing before
+# continuing on to the converge tasks.  For details see:
+# https://www.jeffgeerling.com/blog/2020/resolving-fedora-dnf-error-no-such-file-or-directory-varlibdnfrpmdblockpid
 - name: Group hosts by OS distribution
   hosts: all
   tasks:
     - name: Group hosts by OS distribution
-      group_by:
-        key: os_{{ ansible_facts['distribution'] }}
-- name: Install init (Debian)
-  hosts: os_Debian
+      ansible.builtin.group_by:
+        key: os_{{ ansible_distribution }}
+- name: Wait for systemd to complete initialization (Fedora)
+  hosts: os_Fedora
   tasks:
-    - name: Install init (Debian)
-      package:
-        name:
-          - init
+    - name: Wait for systemd to complete initialization # noqa 303
+      ansible.builtin.command: systemctl is-system-running
+      register: systemctl_status
+      until: "'running' in systemctl_status.stdout"
+      retries: 30
+      delay: 5
+      when: ansible_service_mgr == 'systemd'
+
+- name: Import upgrade playbook
+  ansible.builtin.import_playbook: upgrade.yml
+
+- name: Import python playbook
+  ansible.builtin.import_playbook: python.yml

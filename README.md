@@ -1,6 +1,6 @@
 # ansible-role-orchestrator #
 
-[![Build Status](https://travis-ci.com/cisagov/ansible-role-orchestrator.svg?branch=develop)](https://travis-ci.com/cisagov/ansible-role-orchestrator)
+[![GitHub Build Status](https://github.com/cisagov/ansible-role-orchestrator/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-orchestrator/actions)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-orchestrator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-orchestrator/alerts/)
 [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-orchestrator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-orchestrator/context:python)
 
@@ -17,7 +17,7 @@ None.
 
 ## Dependencies ##
 
-None.
+* [cisagov/ansible-role-docker](https;//github.com/cisagov/ansible-role-docker)
 
 ## Example Playbook ##
 
@@ -33,7 +33,7 @@ Here's how to use it in a playbook:
 
 ## Contributing ##
 
-We welcome contributions!  Please see [here](CONTRIBUTING.md) for
+We welcome contributions!  Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for
 details.
 
 ## License ##
@@ -51,4 +51,4 @@ with this waiver of copyright interest.
 
 ## Author Information ##
 
-First Last - <first.last@trio.dhs.gov>
+Shane Frasier - <jeremy.frasier@trio.dhs.gov>
