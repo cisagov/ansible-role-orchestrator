@@ -45,7 +45,7 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     command: /lib/systemd/systemd
     pre_build_image: yes
-  - name: kali_systemd
+  - name: kalisystemd
     image: cisagov/docker-kali-ansible:latest
     privileged: yes
     volumes:
