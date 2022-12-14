@@ -1,8 +1,7 @@
 # ansible-role-orchestrator #
 
 [![GitHub Build Status](https://github.com/cisagov/ansible-role-orchestrator/workflows/build/badge.svg)](https://github.com/cisagov/ansible-role-orchestrator/actions)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/cisagov/ansible-role-orchestrator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-orchestrator/alerts/)
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/cisagov/ansible-role-orchestrator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/cisagov/ansible-role-orchestrator/context:python)
+[![CodeQL](https://github.com/cisagov/ansible-role-orchestrator/workflows/CodeQL/badge.svg)](https://github.com/cisagov/ansible-role-orchestrator/actions/workflows/codeql-analysis.yml)
 
 An Ansible role for installing
 [cisagov/orchestrator](https://github.com/cisagov/orchestrator).
@@ -34,8 +33,10 @@ Here's how to use it in a playbook:
 - hosts: docker
   become: yes
   become_method: sudo
-  roles:
-    - orchestrator
+  tasks:
+    - name: Install the BOD 18-01 scanning orchestrator composition
+      ansible.builtin.include_role:
+        name: orchestrator
 ```
 
 ## Contributing ##
