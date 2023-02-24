@@ -1,8 +1,11 @@
 ---
+dependencies:
+  - src: https://github.com/cisagov/ansible-role-docker
+    name: docker
 galaxy_info:
   author: Shane Frasier
-  description: Ansible role for installing cisagov/orchestrator
   company: CISA Cyber Assessments
+  description: Ansible role for installing cisagov/orchestrator
   galaxy_tags: []
   license: CC0
   # With the release of version 2.10, Ansible finally correctly
@@ -24,7 +27,6 @@ galaxy_info:
         - bookworm
     - name: Fedora
       versions:
-        - "35"
         - "36"
         - "37"
     - name: Ubuntu
@@ -33,7 +35,3 @@ galaxy_info:
         - focal
         - jammy
   role_name: orchestrator
-
-dependencies:
-  - src: https://github.com/cisagov/ansible-role-docker
-    name: docker
