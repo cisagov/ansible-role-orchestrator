@@ -26,8 +26,8 @@ None.
 Here's how to use it in a playbook:
 
 ```yaml
-- hosts: docker
-  become: yes
+- hosts: all
+  become: true
   become_method: sudo
   tasks:
     - name: Install the BOD 18-01 scanning orchestrator composition
