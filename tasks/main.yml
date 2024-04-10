@@ -1,5 +1,4 @@
 ---
-# tasks file for orchestrator
 - name: Create the /var/cyhy/orchestrator directory
   ansible.builtin.file:
     group: "{{ orchestrator_file_owner_group | default(omit) }}"
