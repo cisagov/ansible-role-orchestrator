@@ -15,7 +15,7 @@
       - "--strip-components=1"
     group: "{{ orchestrator_file_owner_group | default(omit) }}"
     owner: "{{ orchestrator_file_owner_username | default(omit) }}"
-    remote_src: yes
+    remote_src: true
     src: https://api.github.com/repos/cisagov/orchestrator/tarball/develop
 
 - name: Create the mount point for the reports volume
