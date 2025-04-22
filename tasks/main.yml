@@ -2,7 +2,7 @@
 - name: Create the /var/cyhy/orchestrator directory
   ansible.builtin.file:
     group: "{{ orchestrator_file_owner_group | default(omit) }}"
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
     owner: "{{ orchestrator_file_owner_username | default(omit) }}"
     path: /var/cyhy/orchestrator
     state: directory
@@ -25,7 +25,7 @@
 - name: Create the mount point for the reports volume
   ansible.builtin.file:
     group: "{{ orchestrator_file_owner_group | default(omit) }}"
-    mode: 0755
+    mode: u=rwx,g=rx,o=rx
     owner: "{{ orchestrator_file_owner_username | default(omit) }}"
     path: /var/cyhy/orchestrator/output
     state: directory
