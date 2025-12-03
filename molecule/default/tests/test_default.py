@@ -27,7 +27,7 @@ def test_directories(host, directory):
         assert oct(host.file(directory["path"]).mode) == directory["mode"]
 
 
-@pytest.mark.parametrize("f", ["/var/cyhy/orchestrator/docker-compose.yml"])
+@pytest.mark.parametrize("f", ["/var/cyhy/orchestrator/compose.yml"])
 def test_command(host, f):
     """Test that appropriate files exist."""
     assert host.file(f).exists
